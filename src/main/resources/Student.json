@@ -1,0 +1,12 @@
+{
+  "id" : 1,
+  "name" : "Vladislav",
+  "surname" : "Blok",
+  "dateOfBirth" : "31/12/2002",
+  "address" : "Czarnieckiego 29a/32",
+  "email" : "blokv75@gmail.com",
+  "phoneNum" : "728077234",
+  "faculty" : "Informatics",
+  "group" : "1a",
+  "course" : 2
+}
