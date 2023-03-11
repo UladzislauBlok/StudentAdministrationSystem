@@ -1,7 +1,7 @@
-{
+[
+  {
   "id" : 1,
-  "name" : "Vladislav",
-  "surname" : "Blok",
+  "nameAndSurname" : "Vladislav Blok",
   "dateOfBirth" : "31/12/2002",
   "address" : "Czarnieckiego 29a/32",
   "email" : "blokv75@gmail.com",
@@ -9,4 +9,16 @@
   "faculty" : "Informatics",
   "group" : "1a",
   "course" : 2
-}
+  },
+  {
+    "id" : 2,
+    "nameAndSurname" : "Vova Pupkin",
+    "dateOfBirth" : "31/12/2000",
+    "address" : "Czarnieckiego 29a/1",
+    "email" : "vovavv@gmail.com",
+    "phoneNum" : "728077228",
+    "faculty" : "Informatics",
+    "group" : "1c",
+    "course" : 1
+  }
+]

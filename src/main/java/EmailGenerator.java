@@ -4,8 +4,8 @@ import java.lang.Math;
 public class EmailGenerator {
     private static String universityDomain = "uw.bobrujsk.com";
     private final static int lengthPassword = 12;
-    String generateEmail(String name, String surname){
-        String mail = name.toLowerCase() + "." + surname.toLowerCase() + "@" + universityDomain;
+    String generateEmail(String nameAndSurname){
+        String mail = nameAndSurname.toLowerCase()+ "@" + universityDomain;
         String password = generatePassword();
         writeToFile(mail, password);
         return mail;

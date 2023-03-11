@@ -2,10 +2,8 @@ import java.util.Scanner;
 
 public class Student implements java.io.Serializable{
     Scanner scan =  new Scanner(System.in);
-    private static int ID;
     private int id;
-    private String name;
-    private String surname;
+    private String nameAndSurname;
     private String dateOfBirth;
     private String address;
     private String email;
@@ -15,14 +13,11 @@ public class Student implements java.io.Serializable{
     private int course;
 
     Student(){
-
     }
-    Student(String name, String surname, String dateOfBirth){
-        ID++;
-        id = ID;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
+    Student(int id, String nameAndSurname){
+        this.id = id;
+        this.nameAndSurname = nameAndSurname;
+        setDateOfBirth();
         setEmail();
         setAddress();
         setPhoneNum();
@@ -30,27 +25,17 @@ public class Student implements java.io.Serializable{
         setGroup();
         setCourse();
     }
-    Student(int id, String name, String surname, String dateOfBirth, String address,
-            String email, String phoneNum, String faculty, String group, int course){
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
-        this.address = address;
-        this.email = email;
-        this.phoneNum = phoneNum;
-        this.faculty = faculty;
-        this.group = group;
-        this.course = course;
+    void setDateOfBirth(){
+        System.out.println("Enter the student's date of birth(dd/mm/yyyy)");
+        dateOfBirth = scan.nextLine();
     }
-
     void setAddress() {
         System.out.println("Enter the student's address: ");
         address = scan.nextLine();
     }
     void setEmail() {
     EmailGenerator generator = new EmailGenerator();
-    email = generator.generateEmail(name, surname);
+    email = generator.generateEmail(nameAndSurname);
     }
     void setPhoneNum() {
         System.out.println("Enter the student's phone number: ");
@@ -70,11 +55,8 @@ public class Student implements java.io.Serializable{
     }
 
     public int getId() {return id;}
-    public String getName() {
-        return name;
-    }
-    public String getSurname() {
-        return surname;
+    public String getNameAndSurname(){
+        return nameAndSurname;
     }
     public String getDateOfBirth() {
         return dateOfBirth;
@@ -98,7 +80,8 @@ public class Student implements java.io.Serializable{
 
     @Override
     public String toString() {
-        return "Student data: " + name + " " + surname + "\n" +
+        return "Student data of " + nameAndSurname + "\n" +
+                "Id : " + id + "\n" +
                 "Date of birth: " + dateOfBirth + "\n" +
                 "Home Address: " + address + "\n" +
                 "Email: " + email + "\n" +
