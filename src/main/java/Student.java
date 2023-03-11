@@ -3,16 +3,20 @@ import java.util.Scanner;
 public class Student implements java.io.Serializable{
     Scanner scan =  new Scanner(System.in);
     private static int ID;
-    private final int id;
-    private final String name;
-    private final String surname;
-    private final String dateOfBirth;
+    private int id;
+    private String name;
+    private String surname;
+    private String dateOfBirth;
     private String address;
     private String email;
     private String phoneNum;
     private String faculty;
     private String group;
     private int course;
+
+    Student(){
+
+    }
     Student(String name, String surname, String dateOfBirth){
         ID++;
         id = ID;
@@ -65,20 +69,42 @@ public class Student implements java.io.Serializable{
         course = scan.nextInt();
     }
 
-    String getAddress() { return address; }
-    int getId() {return id;}
+    public int getId() {return id;}
+    public String getName() {
+        return name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+    public String getAddress() { return address; }
+    public String getEmail() {
+        return email;
+    }
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+    public String getFaculty() {
+        return faculty;
+    }
+    public String getGroup() {
+        return group;
+    }
+    public int getCourse() {
+        return course;
+    }
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("Student data: ").append(name).append(" ").append(surname).append("\n")
-                .append("Date of birth: ").append(dateOfBirth).append("\n")
-                .append("Home Address: ").append(address).append("\n")
-                .append("Email: ").append(email).append("\n")
-                .append("Phone number: ").append(phoneNum).append("\n")
-                .append("Faculty: ").append(faculty).append("\n")
-                .append("Group: ").append(group).append("\n")
-                .append("Course: ").append(course).append("\n");
-
-        return s.toString();
+        return "Student data: " + name + " " + surname + "\n" +
+                "Date of birth: " + dateOfBirth + "\n" +
+                "Home Address: " + address + "\n" +
+                "Email: " + email + "\n" +
+                "Phone number: " + phoneNum + "\n" +
+                "Faculty: " + faculty + "\n" +
+                "Group: " + group + "\n" +
+                "Course: " + course + "\n";
     }
 }

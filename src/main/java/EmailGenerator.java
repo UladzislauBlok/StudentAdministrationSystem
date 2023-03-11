@@ -26,7 +26,6 @@ public class EmailGenerator {
         {
             writer.write(email + " ----- " + password + "\n");
             writer.flush();
-            writer.close();
         }
         catch(IOException ex){
             System.out.println("File(Email - Password.txt) opening error");
