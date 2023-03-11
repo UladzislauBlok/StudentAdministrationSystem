@@ -1,14 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentList {
     public List<Student> studentList;
-
     StudentList(List<Student> studentList){
         this.studentList = studentList;
     }
-
-    void addStudent(){
+    public void addStudent(){
         System.out.println("Enter the student's name and surname:");
         Scanner scan = new Scanner(System.in);
         String nameAndSurname = scan.nextLine();
@@ -16,12 +15,18 @@ public class StudentList {
         if(studentList == null)
         {
             id = 1;
+            studentList = new ArrayList<Student>();
+            studentList.add(new Student(id, nameAndSurname));
         }else
         {
             Student tempStudent = studentList.get(studentList.size() - 1);
             id = tempStudent.getId() + 1;
+            studentList.add(new Student(id, nameAndSurname));
         }
-        studentList.add(new Student(id, nameAndSurname));
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
     }
 
     @Override
