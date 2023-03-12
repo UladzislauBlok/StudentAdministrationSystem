@@ -80,7 +80,7 @@ public class Student implements java.io.Serializable{
 
     @Override
     public String toString() {
-        return "Student data of " + nameAndSurname + "\n" +
+        return "\nStudent data of " + nameAndSurname + "\n" +
                 "Id : " + id + "\n" +
                 "Date of birth: " + dateOfBirth + "\n" +
                 "Home Address: " + address + "\n" +

@@ -2,10 +2,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Math;
 public class EmailGenerator {
-    private static String universityDomain = "uw.bobrujsk.com";
+    private final String universityDomain = "uw.bobrujsk.com";
     private final static int lengthPassword = 12;
     String generateEmail(String nameAndSurname){
-        String mail = nameAndSurname.toLowerCase()+ "@" + universityDomain;
+        String baseMail = "";
+        for (int count = 0; count < nameAndSurname.length(); count++){
+            if(nameAndSurname.charAt(count) != ' ') {
+                baseMail += nameAndSurname.toLowerCase().charAt(count);
+            }
+        }
+        String mail = baseMail+ "@" + universityDomain;
         String password = generatePassword();
         writeToFile(mail, password);
         return mail;
@@ -30,8 +36,5 @@ public class EmailGenerator {
         catch(IOException ex){
             System.out.println("File(Email - Password.txt) opening error");
         }
-    }
-    public static void changeUniversityDomain(String newDomain) {
-        universityDomain = newDomain;
     }
 }
