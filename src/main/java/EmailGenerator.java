@@ -1,8 +1,6 @@
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.Math;
 public class EmailGenerator {
-    private final String universityDomain = "uw.bobrujsk.com";
+    private final static String universityDomain = "uw.bobrujsk.com";
     private final static int lengthPassword = 12;
     String generateEmail(String nameAndSurname){
         String baseMail = "";
@@ -12,8 +10,6 @@ public class EmailGenerator {
             }
         }
         String mail = baseMail+ "@" + universityDomain;
-        String password = generatePassword();
-        writeToFile(mail, password);
         return mail;
     }
     String generatePassword(){
@@ -25,16 +21,5 @@ public class EmailGenerator {
             tempPassword[count] = symbolPassword.charAt(rand);
         }
         return new String(tempPassword);
-    }
-    void writeToFile(String email, String password) {
-        String filePath = "src/main/resources/Email - Password.txt";
-        try(FileWriter writer = new FileWriter(filePath, true))
-        {
-            writer.write(email + " ----- " + password + "\n");
-            writer.flush();
-        }
-        catch(IOException ex){
-            System.out.println("File(Email - Password.txt) opening error");
-        }
     }
 }

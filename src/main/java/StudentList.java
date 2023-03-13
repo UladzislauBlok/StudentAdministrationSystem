@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class StudentList {
-    public LinkedList<Student> studentList;
+    private LinkedList<Student> studentList;
     StudentList(){
         studentList = JacksonDataBind.fromJson("src/main/resources/Student.json");
     }
@@ -26,6 +26,21 @@ public class StudentList {
             System.out.println("\nStudent with the given id was not found\n");
         }else{
             System.out.println(studentList.get(index).toString());
+        }
+    }
+    public void printRequest(){
+        if(studentList != null && !studentList.isEmpty()){
+            System.out.println("\nThere are requests from the following students:");
+            for(int count = 0; count < studentList.size(); count++){
+                if(studentList.get(count).getRequest() != null)
+                {
+                System.out.println(count + ") " + studentList.get(count).getNameAndSurname() + "\nId: "
+                        + studentList.get(count).getId() + "\n" + studentList.get(count).getRequest() + ";\n");
+            }
+                studentList.get(count).cleanRequest();
+            }
+        }else{
+            System.out.println("\nNot a single student has been added yet\n");
         }
     }
     public void printStudentCourseList(){
@@ -124,6 +139,9 @@ public class StudentList {
     public void saveChanges(){
         JacksonDataBind.toJson(studentList,"src/main/resources/Student.json");
         System.out.println("\nChanges have been successfully saved\n");
+    }
+    public LinkedList<Student> getStudentList() {
+        return studentList;
     }
     @Override
     public String toString() {
