@@ -7,7 +7,7 @@ public class Student implements java.io.Serializable{
     private String dateOfBirth;
     private String address;
     private String email;
-    private String emailPassword;
+    private String password;
     private String phoneNum;
     private String faculty;
     private String group;
@@ -42,7 +42,7 @@ public class Student implements java.io.Serializable{
     }
     void setEmailPasswordByRand(){
         EmailGenerator generator = new EmailGenerator();
-        emailPassword = generator.generatePassword();
+        password = generator.generatePassword();
     }
     void setEmailPasswordByUser(){
         String newPassword;
@@ -62,7 +62,7 @@ public class Student implements java.io.Serializable{
                 System.out.println("\nPassword is not entered correctly\n");
             }
         }
-        emailPassword = newPassword;
+        password = newPassword;
     }
     void setPhoneNum() {
         System.out.println("Enter the student's phone number: ");
@@ -99,7 +99,7 @@ public class Student implements java.io.Serializable{
     public String getEmail() {
         return email;
     }
-    public String getEmailPassword() { return  emailPassword; }
+    public String getPassword() { return password; }
     public String getPhoneNum() {
         return phoneNum;
     }
